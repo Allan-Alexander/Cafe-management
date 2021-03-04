@@ -23,4 +23,6 @@
 ## Login Page
 <img width="1792" alt="Screenshot 2021-03-04 at 12 57 38 PM" src="https://user-images.githubusercontent.com/55384710/109928877-ea009e80-7ceb-11eb-9a5e-bf25c4cc5def.png">
 
+## Menu Page
+<img width="1792" alt="Screenshot 2021-03-04 at 12 58 06 PM" src="https://user-images.githubusercontent.com/55384710/109929168-2d5b0d00-7cec-11eb-9294-b7938faa4a0e.png">
 
