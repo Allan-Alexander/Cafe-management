@@ -1,0 +1,23 @@
+.Cart {
+    align-items: center;
+    display: flex;
+    margin-left: 2em;
+    width: 100%;
+}
+
+.Cart h4 {
+   margin-left: 2em;
+}
+
+.Cart-Link {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+}
+
+.Cart-Session table {
+    align-items:center;
+    justify-content:center;
+}
+
+

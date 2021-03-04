@@ -1,0 +1,54 @@
+<section class="Admin">
+  <h2 class="Menu-Title">Menu Title: </h2>
+  <div class="Admin-AddForm">
+    <%=form_with(url: new_menu_path, method: 'post') do |form|%>
+      <%= form.text_field :menu_title, {:placeholder => 'Add Title',:required => true} %>
+      <%= form.submit 'Add', class: "Admin-Add-btn"%>
+    <% end %>
+  </div>  
+</section>
+
+<section class = "Admin-Sections">
+  <div class="container">
+    <div class="row">
+      <% @getAllMenuTitles.each do |title|%>
+        <div class="col">
+        <h3><%= title.id %>. <%= title.menu_title %></h3> Menu items: <%=Menu.find(title.id).menu_lists.count%>
+          <%= form_with url: "/admin/details/#{title.id}", method: :get do |form|%>
+            <%= form.submit "Details" ,class:"btn btn-info"%>
+          <% end %>
+          <%= form_with url: "/delete/#{title.id}", method: :delete do |form|%>
+            <%= form.submit "Delete" ,class:"btn btn-danger"%>
+          <% end %>
+        </div>
+      <% end %>  
+    </div>
+  </div>    
+  <div class="Admin-Set-Menu">
+    <%=form_with(url: set_id_path, method: 'post') do |form|%>
+      <%= form.number_field :id, {:placeholder => 'Enter Main Menu Id',:required => true} %>
+      <%= form.submit 'Set', class: "Admin-Add-btn"%>
+    <% end %>
+  </div> 
+</section>
+
+
+<section class="Admin-View">
+  <h2 class="Order-Section">Orders:</h2>
+
+  <div class="container">
+    <div class="row">
+    <% User.all.each do |user|%>
+      <% if user.orders.count>0%>
+      <div class="col">
+      <h3><%= user.id %>. <%= user.user_name %></h3>
+      <h4>View Order<h4>       
+            <%= form_with url: "/admin/order/#{user.id}", method: :get do |form|%>
+              <%= form.submit "Details" ,class:"btn btn-dark"%>
+            <% end %>    
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>  
+</section>

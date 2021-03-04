@@ -1,0 +1,40 @@
+<section class = "MenuList">
+   <h2>Menu Title :</h2>
+   <h3><%= @menu_title %></h3>
+</section>
+<hr>
+
+<section class = "MenuListSection">
+   <h3>Menu Items</h3>
+   
+
+<section class = "MenuCard">
+  <div class="row row-cols-1 row-cols-md-2 g-6">
+  <% @menu_items.each do |item| %> 
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= item.menu_name %></h5>
+          <h5 class="card-text"><%= item.menu_price %></h5>
+          <p class="card-text"><%= item.menu_description %></p>
+          <%= form_with url: cart_path do |form|%>
+            <%= form.hidden_field :menu_list_id, value: item.id %>
+            <%= form.hidden_field :menu_list_name, value: item.menu_name %>
+            <%= form.hidden_field :menu_list_price, value: item.menu_price %>
+            <%= form.submit "Add to cart", :class => "btn btn-warning" %>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  <% end %>  
+  </div>
+</section>  
+
+<section class = "MenuList-OrderStatus">
+  <% if User.find(@current_user.id).orders.count > 0 %>
+    <h2>My Order Status :</h2>
+          <%= form_with url: "menus/order/#{@current_user.id}", method: :get do |form|%>
+            <%= form.submit "View Order" ,class:"btn btn-dark"%>
+          <% end %>   
+  <% end %>  
+<section>

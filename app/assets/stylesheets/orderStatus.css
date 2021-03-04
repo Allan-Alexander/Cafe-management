@@ -1,0 +1,33 @@
+.OrderDetails h1 {
+    text-transform: uppercase;
+}
+
+.OrderDetails h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.OrderDetails h4 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.table {
+
+    color: white;
+}
+
+.OrderDetails-Sum {
+    display: flex;
+    margin: 2em;
+    justify-content: space-between;
+}
+
+.OrderDetails-Sum h2{
+    text-transform: none;
+    margin-left: 3em;
+}
+
+.OrderDetails-Sum h3{
+    margin-right: 7em;
+}

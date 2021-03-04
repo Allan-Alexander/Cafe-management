@@ -1,0 +1,23 @@
+<section class="Admin-Add">
+    <h2>Add New Menu List</h2>
+    <section class = "User-section">
+        <%= form_with url: "/admin/newList" do |form|%>
+            <div class = "User-Flex">
+                <p class = "FormInput-label">Menu Name : </p>
+                <%= form.text_field :menu_name, class: "UserForm-input"%>
+            </div>
+            <div class = "User-Flex">
+                <p class = "FormInput-label">Menu Description: </p>
+                <%= form.text_field :menu_description, class: "UserForm-input" %>
+            </div>
+            <div class = "User-Flex">
+                <p class = "FormInput-label">Menu Price: </p>
+                <%= form.number_field :menu_price, class: "UserForm-input" %>
+            </div>
+            <%= form.hidden_field :menu_id, value: $getId %>
+            <div class = "Form-section">
+                <%= form.submit "Save", :class => "btn btn-dark btn-lg" %>
+            </div>
+        <%end%>
+    </section>
+</section>

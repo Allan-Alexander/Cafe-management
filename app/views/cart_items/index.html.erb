@@ -1,0 +1,39 @@
+<section class="Cart">
+   <h1>Cart</h1>
+   <h4><a class="Cart-Link" href="/menus">Back To Menu</a><h4>
+</section>
+<hr>
+<section class="Cart-Session">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Menu Name</th>
+      <th scope="col">Menu Price</th>
+      <th scope="col">Cancel</th>
+    </tr>
+  </thead>
+  <% sum = 0 %>
+  <% @cart_items.each do |item| %>
+  <tbody>
+    <tr>
+      <td><%= item.menu_list_id %></td>
+      <td><%= item.menu_list_name %></td>
+      <td><%= item.menu_list_price%>₹ <% sum+=item.menu_list_price %> </td>
+      <td class= "Cart-Button"> <%= form_with url: "/cart/#{item.id}", method: :delete do |form|%>
+      <%= form.submit "Delete" ,class:"btn btn-danger"%>
+      <% end %> </td>
+    </tr>
+  </tbody>
+  <% end %>  
+  </table>
+  <div class=Item-Headers>
+    <h3>Total Price<h3>
+    <h3><%= sum %>₹</h3>
+  </div> 
+</section>
+<hr>
+<%= form_with url: order_path do |form|%>
+  <%= form.hidden_field :total, value: sum %>
+  <%= form.submit "Order",class:"btn btn-success" %>
+<%end%>

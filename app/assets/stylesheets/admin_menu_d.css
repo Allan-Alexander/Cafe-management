@@ -1,0 +1,12 @@
+.Admin-Details h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.Admin-Details-Delete {
+    color: white;
+    background: #E01E5A;
+    border-radius: 2em;
+    width: 5em;
+    border-color: transparent;
+}

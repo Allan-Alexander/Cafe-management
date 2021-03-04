@@ -1,0 +1,33 @@
+<section class="Admin-Details">
+  <h2><%= @title %></h2>
+  <%= form_with url: "/admin/newList", method: :get do |form|%>
+    <%= form.submit "+ Add Items" ,class:"btn btn-primary"%>
+  <% end %>     
+</section>
+<hr>
+
+<section class="Admin-Details-Section">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Menu Name</th>
+        <th scope="col">Menu Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Cancel</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @details.each do |item|%>
+      <tr>
+        <td><%= item.menu_name%></td>
+        <td><%= item.menu_description %></td>
+        <td><%= item.menu_price%></td>
+        <td><%= form_with url: "/admin/details/#{item.id}", method: :delete do |form|%>
+            <%= form.submit "Delete" ,class:"Admin-Details-Delete"%>
+            <% end %>
+        </td>
+      </tr>
+    <% end %>  
+    </tbody>  
+  </table>  
+</section>

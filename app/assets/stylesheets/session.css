@@ -1,0 +1,19 @@
+.Session {
+    margin: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.Session-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.Session-link-1 {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin-right: 2em;
+}

@@ -1,0 +1,30 @@
+.Admin {
+    margin-bottom: 4em;
+}
+
+.Admin h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.Admin-AddTitle {
+    border-radius: 5em;
+}
+
+.Admin-Add-btn {
+    color: white;
+    background: #2FB67E;
+    border-color: transparent;
+    width: 5em;
+    border-radius: 1em;
+    margin-left: 1em;
+}
+
+.Admin-Set-Menu {
+    margin: 3em 0;
+}
+
+.Admin-View h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+}

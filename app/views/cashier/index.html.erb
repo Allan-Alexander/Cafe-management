@@ -1,0 +1,55 @@
+<section class="Cashier">
+<h1>Cashier</h1>
+
+<h2>Pending Orders: </h2>
+<% User.all.each do |user| %>
+<% if user.orders.count>0 %>
+
+ <hr>
+<% total_sum=0 %> 
+<% user.orders.each do |order| %>
+  <% if order.delivered_at != true%>
+      <h1>Order details of <%= user.user_name %></h1>
+  <%end%>
+  <% if order.delivered_at != true %>
+  <h2>Order Id: <%=order.id%></h2>
+  <h4>Order Date: <%= order.order_date%></h4>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Menu Name</th>
+      <th scope="col">Menu Price</th>
+    </tr>
+  </thead>
+    <% sum=0 %>
+    <% order.order_items.each do |item| %>
+      <tbody>
+        <tr>
+          <% sum=0 %>
+          <% order.order_items.each do |item| %>
+            <td><%= item.menu_item_name %></td>
+            <td><%= item.menu_item_price%>₹
+            <% sum+=item.menu_item_price %></td>
+          <% end %>
+        </tr>
+    <% end %>
+    </tbody>
+    </table> 
+    <div class="Cashier-Sum">
+      <h3>Total </h3>
+      <h3><%=sum%></h3>
+    </div>
+    <%if order.delivered_at == nil || false%>
+      <%= form_with url: "/cashier/updateOrder/#{order.id}", method: :patch do |form|%>
+              <%= form.submit "Deliver" ,class:"btn btn-success"%>
+      <% end %>
+    <% end %>
+    <% total_sum+=sum%>
+<% end %>
+
+<%end%>
+
+
+<% end %>
+<%end%>
+</section>

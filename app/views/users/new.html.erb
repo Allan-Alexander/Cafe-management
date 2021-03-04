@@ -1,0 +1,18 @@
+<section class = "User">
+   <h1>New User</h1>
+   <section class = "User-section">
+       <%= form_with url: signup_path do |form|%>
+          <div class = "User-Flex">
+               <p>User Name : </p>
+               <%= form.text_field :user_name, class: "UserForm-input"%>
+           </div>
+           <div class = "User-Flex">
+               <p>Password: </p>
+               <%= form.password_field :password, class: "UserForm-input-1" %>
+           </div>
+           <div class="btn">
+               <%= form.submit 'Save', :class => "btn btn-dark btn-lg" %>
+            </div>   
+           <%end%>
+    </section>
+</section>    

@@ -1,0 +1,55 @@
+<section class = "OrderDetails">
+ <h1>Order details of <%= User.find(@order_id).user_name %></h1>
+ <hr>
+ <% total_sum=0 %> 
+ <% User.find(@order_id).orders.each do |order| %>
+  <h2>Order Id: <%=order.id%></h2>
+  <h4>Order Date: <%= order.order_date%></h4>
+
+  
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Menu</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <% sum=0 %>
+  <% order.order_items.each do |item| %>
+  <tbody>
+      <tr>
+        <th scope="row"><%= item.menu_list_id %></th>
+        <td><%= item.menu_item_name %></td>
+        <td><%= item.menu_item_price %><% sum+=item.menu_item_price %></td>
+      </tr>
+  </tbody>
+  <% end %>    
+</table>
+
+<div class="OrderDetails-Sum">
+  <h2>Total: </h2>
+  <h3><%=sum%></h3>
+</div>
+
+<%if order.delivered_at == nil || false%>
+  <div class=>
+    <%= form_with url: "/admin/updateOrder/#{order.id}", method: :patch do |form|%>
+      <%= form.submit "Ordered" ,class:"btn btn-success",disabled:true%>
+    <% end %>
+    <%= form_with url: "/cancel/#{order.id}", method: :delete do |form|%>
+      <%= form.submit "Cancel Order" ,class:"btn btn-danger" %>
+    <% end %>
+<%else%> 
+    <%= form_with url: "/admin/updateOrder/#{order.id}", method: :patch do |form|%>
+      <%= form.submit "Delivered" ,class:"btn btn-sucess", disabled: true%>
+    <% end %> 
+<% end %>
+   </div> 
+    <% total_sum+=sum%>
+<% end %>
+<hr>
+<div class="TotalSum">
+  <h2>Net Price: </h2> 
+  <h2><%=total_sum%></h2>
+</div>

@@ -1,0 +1,5 @@
+<!--
+      <%= form_with url: addList_path, method: :get do |form|%>
+        <%= form.submit "Add" ,class:"Delete-Button1"%>
+      <% end %>
+      -->
