@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
-    before_action :ensure_user_role, except: [:setId]
-    
-    
+    before_action :ensure_user_role, except: [:setId, :getId]
+   
+    $main_id = nil
     
     def new
         @getAllOrders = Order.all
@@ -81,15 +81,20 @@ class AdminController < ApplicationController
     end
 
     def setId
-        if params[:id] == nil
-            @main_id = Menu.first.id
+        if  $main_id == nil
+            $main_id = Menu.first.id
         else
-            @main_id = params[:id]    
+            $main_id = Menu.find(params[:id]).id   
         end
+        redirect_to admin_path
     end
 
-    def getMainId
-        return @main_id
-    end
+    def getId
+        if $main_id == nil
+            $main_id = Menu.first.id
+        else
+            return $main_id
+        end        
+    end 
 
 end

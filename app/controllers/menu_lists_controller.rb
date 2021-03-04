@@ -5,7 +5,7 @@ class MenuListsController < AdminController
  
 
   def index
-    menu_list = Menu.find_by(id: setId) 
+    menu_list = Menu.find_by(id: getId) 
     @menu_title = menu_list.menu_title
     @menu_items = menu_list.menu_lists 
     render 'index', locals: {user_name: current_user.user_name}
