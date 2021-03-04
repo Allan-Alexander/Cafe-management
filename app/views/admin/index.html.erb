@@ -7,12 +7,13 @@
     <% end %>
   </div>  
 </section>
-
+ 
 <section class = "Admin-Sections">
   <div class="container">
     <div class="row">
       <% @getAllMenuTitles.each do |title|%>
         <div class="col">
+        <div class="card" style="padding:2em;">
         <h3><%= title.id %>. <%= title.menu_title %></h3> Menu items: <%=Menu.find(title.id).menu_lists.count%>
           <%= form_with url: "/admin/details/#{title.id}", method: :get do |form|%>
             <%= form.submit "Details" ,class:"btn btn-info"%>
@@ -20,6 +21,7 @@
           <%= form_with url: "/delete/#{title.id}", method: :delete do |form|%>
             <%= form.submit "Delete" ,class:"btn btn-danger"%>
           <% end %>
+        </div>
         </div>
       <% end %>  
     </div>
@@ -41,14 +43,17 @@
     <% User.all.each do |user|%>
       <% if user.orders.count>0%>
       <div class="col">
+      <div class="card" style="padding:2em;">
       <h3><%= user.id %>. <%= user.user_name %></h3>
       <h4>View Order<h4>       
             <%= form_with url: "/admin/order/#{user.id}", method: :get do |form|%>
               <%= form.submit "Details" ,class:"btn btn-dark"%>
-            <% end %>    
+            <% end %>  
+      </div>        
       </div>
       <% end %>
       <% end %>
     </div>
   </div>  
-</section>
+
+  

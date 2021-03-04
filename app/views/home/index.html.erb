@@ -10,9 +10,7 @@
   <body>
     <section class="Home">
       <h1>Welcome</h1>
-      
       <h3> Would you like to savor the exquisite cuisine and bring the art of dining to a new level? We obtain the freshest products from reputable purveyors and incorporate them into our exclusive dishes. Our menus are influenced by culinary traditions of Europe, Far East and other parts of the world. We are open to experiments and often add new dishes to our a la carte menu. After trying our appetizers, entrees and one-of-a-kind desserts, you won’t be able to resist the temptation and ask for more. Our courteous and attentive waiters in smoking jackets and bow ties will bring you anything you wish. </h3>
-    
       <h4 class = "up">
         If a new user , <%= link_to 'click here to sign up', signup_path , class:"ml3"%>
       </h4>
@@ -20,10 +18,8 @@
         If an existing user , <%= link_to 'click here to sign in', signin_path, class:"sign_in"%>
       </h4>
     </section>
-
-
-
     <script>
+
     var textWrapper = document.querySelector('.ml3');
     textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
     
@@ -43,7 +39,5 @@
       });
 
     </script>
-    
-
   </body>
 </html>
