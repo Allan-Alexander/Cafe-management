@@ -30,3 +30,4 @@
 <img width="1792" alt="Screenshot 2021-03-04 at 1 02 16 PM" src="https://user-images.githubusercontent.com/55384710/109929405-698e6d80-7cec-11eb-991d-88f7228969a6.png">
 
 ## Order Details
+<img width="1792" alt="Screenshot 2021-03-04 at 1 02 55 PM" src="https://user-images.githubusercontent.com/55384710/109929569-9fcbed00-7cec-11eb-9653-1cac6cfa80eb.png">
